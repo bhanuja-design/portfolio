@@ -1,0 +1,10 @@
+{
+  "background": "#F9FCFD",
+  "border": "#E5E8EB",
+  "textPrimary": "#2C3846",
+  "textSecondary": "#818A92",
+  "textBody": "#57616C",
+  "accent": "#0F00AB",
+  "accentSecondary": "#A892A6",
+  "onAccent": "#FFFFFF"
+}

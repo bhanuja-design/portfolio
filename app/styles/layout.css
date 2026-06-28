@@ -1,0 +1,127 @@
+@layer components {
+  .shell {
+    box-sizing: border-box;
+    width: 100%;
+    min-width: 0;
+    max-width: var(--container-max);
+    margin-inline: auto;
+    padding-inline: var(--gutter);
+  }
+
+  .content-grid {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    column-gap: var(--grid-gap);
+  }
+
+  .hero-section {
+    padding-top: var(--space-section);
+    padding-bottom: 0;
+  }
+
+  .col-measure--10 {
+    grid-column: 1 / span 10;
+    min-width: 0;
+  }
+
+  .col-full {
+    grid-column: 1 / -1;
+    min-width: 0;
+  }
+
+  .footer {
+    position: relative;
+    flex-shrink: 0;
+    overflow: clip;
+    padding-top: 0;
+    padding-bottom: var(--space-footer);
+    margin-top: auto;
+  }
+
+  .footer__inner {
+    position: relative;
+    width: 100%;
+    min-width: 0;
+    row-gap: 0.5rem;
+  }
+
+  .footer__signoff {
+    margin: 0;
+    min-width: 0;
+    text-align: left;
+    font-style: italic;
+  }
+
+  .footer__gif-anchor {
+    position: relative;
+    display: inline-block;
+    width: 0;
+    height: 0;
+    vertical-align: text-top;
+    overflow: visible;
+  }
+
+  .footer__year {
+    grid-column: 1 / -1;
+    margin: 0;
+    justify-self: start;
+    align-self: center;
+    font-family: var(--font-geist-mono);
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    font-weight: 400;
+    letter-spacing: 0.4px;
+    text-align: right;
+    color: var(--color-text-secondary);
+    font-variant-numeric: tabular-nums;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  @media (min-width: 48rem) {
+    .footer__signoff {
+      align-self: center;
+    }
+
+    .footer__year {
+      grid-column: 11 / -1;
+      justify-self: end;
+      align-self: center;
+    }
+  }
+
+  @media (max-width: 63.999rem) {
+    .col-measure--10,
+    .col-full {
+      grid-column: 1 / -1;
+    }
+  }
+}
+
+/* Footer GIF — fixed so it never extends document scroll height */
+.footer__gif {
+  position: fixed;
+  width: min(240px, 40vw);
+  max-width: calc(100vw - 2 * var(--gutter));
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition:
+    opacity 0.3s ease-out,
+    visibility 0.3s ease-out;
+  z-index: 20;
+}
+
+.footer__gif--visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.footer__gif-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 450 / 373;
+  border-radius: 0;
+  object-fit: unset;
+}

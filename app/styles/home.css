@@ -1,0 +1,142 @@
+@layer components {
+  .hero-flow {
+    margin: 0;
+    font-size: 1.75rem;
+    line-height: 1.375;
+    font-weight: var(--font-weight-normal);
+  }
+
+  .hero-flow__block {
+    display: block;
+  }
+
+  .hero-flow__block + .hero-flow__block {
+    padding-top: 3rem;
+  }
+
+  @media (min-width: 80rem) {
+    .hero-flow {
+      font-size: var(--text-3xl);
+      line-height: var(--text-3xl--line-height);
+    }
+  }
+
+  .home-sections {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-section-gap);
+    padding-bottom: var(--space-section-gap);
+  }
+}
+
+/* Homepage selected work — unlayered for reliable link/hover */
+.selected-work__link {
+  display: block;
+  min-width: 0;
+  text-decoration: none;
+  color: inherit;
+}
+
+.selected-work__media {
+  aspect-ratio: 1;
+  width: 100%;
+  border-radius: 8px;
+  transition:
+    opacity 0.25s ease-out,
+    filter 0.25s ease-out;
+}
+
+.selected-work__body {
+  padding-top: 1rem;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .selected-work__media {
+    opacity: 0.5;
+    filter: saturate(0.8);
+  }
+
+  .selected-work__grid:has(.selected-work__link:hover)
+    .selected-work__link:not(:hover)
+    .selected-work__media {
+    opacity: 0.3;
+  }
+
+  .selected-work__link:hover .selected-work__media,
+  .selected-work__link:focus-visible .selected-work__media {
+    opacity: 1;
+    filter: none;
+  }
+}
+
+@media (hover: none) {
+  .selected-work__media {
+    opacity: 1;
+    filter: none;
+  }
+}
+
+.selected-work {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-list);
+  width: 100%;
+  min-width: 0;
+  padding: 0;
+}
+
+.selected-work__header {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  column-gap: var(--grid-gap);
+  width: 100%;
+  min-width: 0;
+}
+
+.selected-work__divider {
+  width: 100%;
+  height: 0;
+  margin: 0;
+  border: 0;
+  border-top: 1px solid var(--color-border);
+  align-self: center;
+}
+
+.selected-work__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--grid-gap);
+  width: 100%;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+}
+
+@media (min-width: 40rem) {
+  .selected-work__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 64rem) {
+  .selected-work__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* Unlayered — wins over @layer components and bare heading defaults */
+.selected-work__eyebrow {
+  margin: 0;
+  flex-shrink: 0;
+  white-space: nowrap;
+  font-family: var(--font-geist-mono);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

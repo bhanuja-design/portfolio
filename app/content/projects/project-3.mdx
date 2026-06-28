@@ -1,24 +1,155 @@
 ---
-title: Project Three
+title: Game Server Deployment
 slug: project-3
-date: 2023-06-10
+date: 2024-06-10
+featured: true
 role: Lead Designer
-shortDescription: A mobile-first dashboard for real-time analytics.
-featured: false
+madeAt: Amazon GameLift
+timeline: January – June 2024
+team: 4 designers
+skills:
+  - Product Design
+  - Interaction Design
+  - Developer Experience
+shortDescription: Simplifying game server fleet deployment and configuration for developers on Amazon GameLift.
 ---
 
-# Project Three
+## Overview
 
-Building a responsive analytics dashboard that works equally well on desktop and mobile.
+Amazon GameLift manages the infrastructure that keeps multiplayer games running. This project focused on the developer experience for deploying and configuring game server fleets — a workflow that was technically powerful but notoriously hard to learn.
+
+New developers faced a steep curve between a working local build and a production-ready fleet. Every step — from upload to scaling policy — needed to feel guided without hiding the control that experienced teams expect.
 
 ## Problem
 
-The legacy dashboard was designed for large screens only. Mobile users had to pinch, zoom, and scroll horizontally to access critical metrics, making quick checks impractical.
+New developers struggled to get from a working server build to a live, scalable fleet. The configuration surface was large and the console UI exposed low-level concepts without enough guidance, leading to misconfigured fleets and failed launches.
+
+### Configuration overload
+
+The legacy flow presented dozens of settings upfront. Developers did not know which fields were required, which had safe defaults, and which could break a launch if mis-set.
+
+### Opaque failure states
+
+When a deployment failed, error messages pointed to infrastructure details without suggesting corrective action. Support tickets often repeated the same configuration mistakes.
+
+## Research
+
+I ran task analysis sessions with developers at different experience levels — from first-time GameLift users to teams running live titles. Sessions included think-aloud fleet creation, support ticket review, and interviews with customer-facing engineers.
+
+### Task analysis
+
+Twelve developers walked through fleet creation while narrating their decisions. We mapped hesitation points, backtracking, and moments where they opened external documentation.
+
+### Support ticket review
+
+We analyzed 200 configuration-related tickets from the prior quarter. Misconfigured scaling policies, incorrect build uploads, and region selection errors accounted for the majority of volume.
+
+### Expert interviews
+
+GameLift solutions architects described the "minimum viable fleet" configuration they wished every new customer started with — and where experienced teams need to diverge.
 
 ## Approach
 
-I started with mobile wireframes, prioritizing the three metrics users checked most often. A flexible grid system and collapsible detail panels allowed the layout to scale up gracefully for tablet and desktop viewports.
+The insights shaped a guided fleet creation wizard with progressive disclosure, inline validation, and plain-language explanations for every non-obvious setting.
+
+### Guided wizard
+
+Fleet creation became a step-by-step flow: build upload, fleet type, scaling policy, and review. Advanced settings remain available but are not shown by default.
+
+### Inline validation
+
+Each step validates before the developer can proceed. Errors explain what went wrong and link to relevant documentation — not raw API responses.
+
+### Sensible defaults
+
+Pre-filled values reflect the most common successful configurations from support data. Developers can accept defaults or override with full visibility into what changed.
+
+## Design principles
+
+We codified four principles to guide every decision in the deployment experience.
+
+### Guide, don't gate
+
+The wizard suggests a path; it does not block experts from accessing advanced configuration when they need it.
+
+### Fail forward
+
+Errors include a recommended next action. A failed step should never leave the developer staring at a dead end.
+
+### Show the model
+
+When a setting affects scaling or cost, a short explanation appears inline — not buried in docs. Developers should understand tradeoffs at the moment of decision.
+
+### Match mental models
+
+Language and flow follow how developers think about the task: "get my build running" before " tune autoscaling curves."
+
+## Prototyping
+
+We moved from flow diagrams to interactive prototypes, testing with internal dev advocates and external beta developers before shipping to production.
+
+### Low-fidelity flows
+
+Paper and whiteboard flows tested three wizard structures with eight developers. Linear step-by-step outperformed tabbed configuration for first-time users.
+
+### Interactive mockups
+
+High-fidelity prototypes in Figma were used for usability tests and engineering scoping. Validation messaging and default states were iterated heavily based on test confusion points.
+
+### Beta build
+
+A limited beta with select studios let us observe real fleet creations. We tracked drop-off by step and time-to-successful-deployment over four weeks.
+
+## Key screens
+
+The experience spans the wizard, a review summary, and post-launch fleet management entry points. Below is a narrative walkthrough of the core screens.
+
+### Build upload
+
+First step handles server build selection and upload with clear format requirements and progress feedback.
+
+### Fleet configuration
+
+Core settings — instance type, capacity, region — with recommended defaults and expandable advanced panels.
+
+### Scaling policy
+
+Guided selection between common scaling patterns with visual summaries of how each behaves under load.
+
+### Review and launch
+
+Summary of all settings with inline edit links. Launch button disabled until validation passes, with a checklist of remaining issues.
 
 ## Outcome
 
-Mobile usage of the dashboard grew significantly after launch. Stakeholders could monitor key numbers on the go, and the component library built during this project accelerated later dashboard work.
+Time-to-first-deployment dropped for developers onboarding to GameLift. Support ticket volume for configuration errors decreased in the months following the redesign.
+
+### Metrics
+
+- Median time-to-first-successful-deployment decreased by 35%
+- Configuration-related support tickets dropped 28% quarter-over-quarter
+- Wizard completion rate reached 82% for first-time users
+
+### Rollout
+
+The guided wizard is now the default fleet creation path in the GameLift console. Legacy advanced-only flow remains accessible for power users via an explicit opt-in.
+
+## Learnings
+
+Developer tools fail when they optimize for completeness over sequence. First-time success matters more than exposing every capability on day one.
+
+### What worked
+
+Progressive disclosure, inline validation with actionable errors, and defaults grounded in real support data. Developers felt guided without feeling constrained.
+
+### What we'd do differently
+
+More testing with teams migrating from competing platforms — their mental models differ from greenfield users. Earlier involvement of technical writers on in-flow documentation.
+
+### Open questions
+
+Where should advanced users land after their first fleet — same wizard with shortcuts, or a separate power-user surface? How much configuration belongs in CI/CD vs. the console? We are still learning as usage patterns evolve.
+
+## Next steps
+
+Work continues on fleet templates for common game genres, CLI parity with the wizard experience, and improved observability hooks immediately after launch. The principles remain the anchor for future GameLift console work.

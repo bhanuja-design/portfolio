@@ -1,0 +1,79 @@
+"use client";
+
+import { useState } from "react";
+
+async function copyToClipboard(text: string): Promise<boolean> {
+  if (typeof navigator !== "undefined" && navigator.clipboard?.writeText) {
+    try {
+      await navigator.clipboard.writeText(text);
+      return true;
+    } catch {
+      // Fall through to legacy copy path.
+    }
+  }
+
+  if (typeof document === "undefined") {
+    return false;
+  }
+
+  try {
+    const textarea = document.createElement("textarea");
+    textarea.value = text;
+    textarea.setAttribute("readonly", "");
+    textarea.style.position = "fixed";
+    textarea.style.left = "-9999px";
+    textarea.style.top = "0";
+    document.body.appendChild(textarea);
+    textarea.focus();
+    textarea.select();
+    const copied = document.execCommand("copy");
+    document.body.removeChild(textarea);
+    return copied;
+  } catch {
+    return false;
+  }
+}
+
+function notifyEmailCopied() {
+  window.dispatchEvent(new CustomEvent("email-copied"));
+}
+
+interface CopyEmailLinkProps {
+  email: string;
+  children: React.ReactNode;
+  className?: string;
+}
+
+export default function CopyEmailLink({ email, children, className }: CopyEmailLinkProps) {
+  const [copyStatus, setCopyStatus] = useState("");
+
+  const handleClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
+    event.preventDefault();
+
+    void copyToClipboard(email).then((copied) => {
+      if (copied) {
+        setCopyStatus("Email copied to clipboard.");
+        notifyEmailCopied();
+        return;
+      }
+
+      window.location.href = `mailto:${email}`;
+    });
+  };
+
+  return (
+    <>
+      <span className="sr-only" aria-live="polite">
+        {copyStatus}
+      </span>
+      <a
+        href={`mailto:${email}`}
+        data-cursor="email"
+        onClick={handleClick}
+        className={className ?? "text-text-primary hover:text-accent"}
+      >
+        {children}
+      </a>
+    </>
+  );
+}

@@ -1,0 +1,51 @@
+@theme {
+  /* Color system — sync hex values with app/lib/brand-colors.json */
+  --color-background: #f9fcfd;
+  --color-border: #e5e8eb;
+  --color-text-primary: #2c3846;
+  --color-text-secondary: #818a92;
+  --color-text-body: #57616c;
+  --color-accent: #0f00ab;
+  --color-accent-muted: rgb(15 0 171 / 0.08);
+  --color-accent-secondary: #a892a6;
+
+  /* Derived tokens */
+  --color-surface: color-mix(in srgb, var(--color-border) 50%, var(--color-background));
+  --color-on-accent: #ffffff;
+  --color-accent-emphasis: rgb(15 0 171 / 0.9);
+  --color-shadow: rgb(44 56 70 / 0.1);
+
+  --text-sm: 0.875rem;
+  --text-sm--line-height: 1.25rem;
+  --text-base: 1rem;
+  --text-base--line-height: 1.5rem;
+  --text-lg: 1.125rem;
+  --text-lg--line-height: 1.75rem;
+  --text-xl: 1.25rem;
+  --text-xl--line-height: 1.75rem;
+  --text-2xl: 1.5rem;
+  --text-2xl--line-height: 2rem;
+  --text-3xl: 1.875rem;
+  --text-3xl--line-height: 2.25rem;
+  --text-4xl: 2.25rem;
+  --text-4xl--line-height: 2.5rem;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-normal: 400;
+  --tracking-tight: -0.025em;
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+:root {
+  --gutter: clamp(1.25rem, 4vw, 3rem);
+  --container-max: min(1920px, max(1440px, 88vw), 100%);
+  --grid-gap: clamp(1rem, 2vw, 2rem);
+  --space-section: clamp(4rem, 7vw, 6rem);
+  --space-block: 2.5rem;
+  --space-list: clamp(3rem, 4.5vw, 4rem);
+  --space-hero-selected: clamp(3.5rem, 5.5vw, 5.5rem);
+  --space-section-gap: calc(var(--space-hero-selected) + var(--space-block));
+  --space-footer: clamp(1.25rem, 2vw, 1.75rem);
+}

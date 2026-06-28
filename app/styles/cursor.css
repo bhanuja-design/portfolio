@@ -1,0 +1,102 @@
+@media (hover: hover) and (pointer: fine) {
+  html.has-custom-cursor,
+  html.has-custom-cursor * {
+    cursor: none !important;
+  }
+}
+
+@media (hover: none), (pointer: coarse), (max-width: 768px) {
+  .custom-cursor {
+    display: none;
+  }
+}
+
+.custom-cursor {
+  --cursor-dot-size: 16px;
+  --cursor-link-dot-size: 32px;
+  --cursor-link-opacity: 0.35;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--cursor-dot-size);
+  height: var(--cursor-dot-size);
+  border-radius: 9999px;
+  background-color: var(--color-accent-emphasis);
+  color: var(--color-on-accent);
+  pointer-events: none;
+  user-select: none;
+  overflow: hidden;
+  transition:
+    width 0.2s ease-out,
+    height 0.2s ease-out,
+    min-width 0.2s ease-out,
+    padding 0.2s ease-out,
+    gap 0.2s ease-out,
+    opacity 0.15s ease-out,
+    transform 0.1s ease-out,
+    box-shadow 0.2s ease-out;
+  will-change: transform, opacity, width, height;
+}
+
+.custom-cursor--link {
+  width: var(--cursor-link-dot-size);
+  height: var(--cursor-link-dot-size);
+  opacity: var(--cursor-link-opacity);
+}
+
+.custom-cursor--link.custom-cursor--pressed {
+  opacity: 1;
+}
+
+.custom-cursor--pill {
+  width: auto;
+  height: auto;
+  gap: 8px;
+  padding: 8px 12px;
+  box-shadow: 0 2px 8px var(--color-shadow);
+}
+
+.custom-cursor__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  color: var(--color-on-accent);
+  opacity: 0;
+}
+
+.custom-cursor--pill .custom-cursor__icon {
+  opacity: 1;
+}
+
+.custom-cursor__icon svg {
+  display: block;
+  width: 16px;
+  height: 16px;
+  shape-rendering: geometricPrecision;
+}
+
+.custom-cursor__label {
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  white-space: nowrap;
+  color: var(--color-on-accent);
+  font-family: var(--font-geist-mono);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: max-width 0.2s ease-out;
+}

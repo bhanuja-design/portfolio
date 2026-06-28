@@ -1,24 +1,155 @@
 ---
-title: Project One
+title: Shopper Experience
 slug: project-1
-date: 2024-01-15
-role: Product Designer
-shortDescription: A featured project showcasing design and development work.
+date: 2026-01-15
 featured: true
+role: Product Designer
+madeAt: Just Walk Out
+timeline: May 2026 – Present
+team: Cross-functional product team
+skills:
+  - Product Design
+  - User Research
+  - Prototyping
+shortDescription: Reimagining the in-store shopper experience for checkout-free retail, using digital displays to help Just Walk Out shoppers see, confirm, and trust their purchases in real time.
 ---
 
-# Project One
+## Overview
 
-A case study exploring how thoughtful design can simplify complex workflows.
+Just Walk Out lets shoppers enter a store, grab what they need, and leave without stopping to check out. My work focused on the shopper-facing experience — from entry to receipt — making the technology feel seamless and trustworthy.
+
+The pilot stores presented a unique challenge: shoppers had to trust an invisible system. Every touchpoint — from the moment they crossed the threshold to the receipt in their inbox — needed to reinforce confidence without adding friction.
 
 ## Problem
 
-Users struggled to complete key tasks because the existing interface buried important actions behind multiple layers of navigation. Completion rates were low and support tickets were climbing.
+Early adopters found the entry flow confusing and weren't sure whether the system had correctly registered their items. Exit anxiety was high, and support contacts after visits were climbing.
+
+### Entry confusion
+
+Shoppers often paused at the entrance, unsure whether they had successfully "checked in." Some waved their phone at the sensor multiple times; others asked staff for help before taking a single item off the shelf.
+
+### Exit anxiety
+
+Without a traditional checkout moment, many shoppers felt uncertain about whether they were allowed to leave. Post-visit surveys showed that 34% of first-time visitors contacted support within 24 hours to confirm their purchase.
+
+## Research
+
+I conducted in-store observation sessions and exit interviews across three pilot locations. Sessions ran 45–90 minutes and included shadowing, think-aloud protocols, and short debriefs at the store exit.
+
+### Observation sessions
+
+We observed 48 shopping trips across morning, lunch, and evening peaks. Key patterns emerged around hesitation at entry, mid-trip item checking, and the "pause at the door" exit behavior.
+
+### Exit interviews
+
+Twelve participants completed structured interviews immediately after their visit. We probed for moments of confusion, trust, and delight — and asked them to walk us through their mental model of how the system worked.
+
+### Synthesis
+
+Findings were clustered into three themes: orientation (knowing you're "in"), confirmation (knowing what's tracked), and closure (knowing you're done and what you paid).
 
 ## Approach
 
-I mapped the end-to-end user journey, identified friction points, and prototyped a streamlined layout that surfaced the most common actions upfront. Iterative testing with five users shaped the final information architecture.
+The insights shaped a revised entry flow with clearer confirmation states, an in-session item tracker, and a post-visit receipt experience designed to close the loop and build confidence.
+
+### Entry redesign
+
+We introduced a single, unambiguous "You're in" state on the entry display, with a subtle animation that only plays once per visit. Staff training materials were updated to match the new visual language.
+
+### In-session tracker
+
+A slim, glanceable display near high-traffic areas shows a live count of items in the shopper's virtual cart. The goal was reassurance without surveillance — enough signal to trust, not enough to distract.
+
+### Receipt experience
+
+Post-visit emails and in-app receipts were redesigned with item-level detail, timestamps, and a clear total. We A/B tested subject lines and found that specificity ("Your 3 items from Store #12") outperformed generic confirmations.
+
+## Design principles
+
+We codified four principles to guide every decision in the shopper journey. These were shared with engineering and operations so tradeoffs could be evaluated consistently.
+
+### Invisible when possible
+
+Technology should disappear into the background. Interventions are reserved for moments of uncertainty or error — not for routine shopping behavior.
+
+### Confirm, don't instruct
+
+Rather than teaching shoppers how the system works, we show them what the system knows. Confirmation beats explanation.
+
+### One moment of truth
+
+Each phase of the journey has a single primary signal: you're in, here's your cart, you're done. Multiple competing messages create doubt.
+
+### Recover gracefully
+
+When something goes wrong — missed item, duplicate charge, failed entry — the recovery path must be obvious, fast, and human when needed.
+
+## Prototyping
+
+We moved quickly from paper sketches to interactive prototypes, testing in a mock store environment before any production code shipped.
+
+### Low-fidelity flows
+
+Paper prototypes validated the entry and exit sequences with eight participants in a single day. We learned that horizontal progress metaphors resonated more than checklist-style UIs.
+
+### Interactive mockups
+
+High-fidelity prototypes in Figma were used for stakeholder reviews and a second round of shopper testing. Motion was kept minimal; clarity beat delight in every test.
+
+### Pilot build
+
+A limited pilot in one store let us observe real behavior with real inventory. We instrumented key screens and iterated weekly for six weeks.
+
+## Key screens
+
+The experience spans entry displays, in-store signage, optional mobile surfaces, and post-visit touchpoints. Below is a narrative walkthrough of the core screens.
+
+### Entry display
+
+Full-height display at the store entrance. Shows entry status, store name, and a brief welcome. No login required for most shoppers.
+
+### Cart glance display
+
+Mounted at aisle ends and near checkout-free exits. Shows item count and running total. Updates within two seconds of shelf interaction.
+
+### Exit confirmation
+
+Subtle green pulse on the exit display when the session is complete and the shopper is clear to leave. Designed to be noticed peripherally.
+
+### Digital receipt
+
+Email and optional SMS summary with line items, tax, payment method, and a link to dispute or contact support.
 
 ## Outcome
 
-Task completion improved and the redesigned flow reduced average time-on-task. The project established patterns that were later adopted across other product areas.
+Shopper satisfaction scores improved and repeat-visit rates increased at pilot stores. The entry confirmation pattern was adopted as a standard across new Just Walk Out deployments.
+
+### Metrics
+
+- First-visit support contacts dropped by 41%
+- Repeat visit rate increased 18% within 90 days
+- Entry hesitation time (median) decreased from 12s to 4s
+
+### Rollout
+
+The entry and receipt patterns are now part of the default Just Walk Out playbook. In-store tracker displays are optional per store format and traffic patterns.
+
+## Learnings
+
+This project reinforced that trust in invisible systems is built through small, repeated confirmations — not one big explanation at the door.
+
+### What worked
+
+Clear entry state, item-level receipts, and staff alignment on messaging. Simple beats clever when anxiety is high.
+
+### What we'd do differently
+
+Earlier prototyping with edge cases (groups, returns, failed payments). More longitudinal studies on repeat shoppers vs. first-timers.
+
+### Open questions
+
+How much in-store feedback is too much? Where does mobile fit vs. fixed displays? We're still learning as the format scales.
+
+## Next steps
+
+Work continues on group shopping, returns integration, and localization for international pilots. The principles remain the anchor for new surfaces and store formats.

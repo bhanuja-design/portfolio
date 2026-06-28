@@ -1,24 +1,155 @@
 ---
-title: Project Two
+title: CXO Framework
 slug: project-2
-date: 2023-09-20
-role: UX Designer
-shortDescription: An exploration of user onboarding flows for a SaaS product.
+date: 2025-09-20
 featured: true
+role: UX Designer
+madeAt: AWS Game Tech
+timeline: March – September 2025
+team: 3 designers
+skills:
+  - Product Design
+  - Product Strategy
+  - Prototyping
+shortDescription: A decision-making framework to help game studio executives evaluate AWS Game Tech services.
 ---
 
-# Project Two
+## Overview
 
-Redesigning onboarding to help new users reach their first meaningful success faster.
+AWS Game Tech serves studios of all sizes, but the executive audience — CTOs, VPs of Engineering, and studio heads — needed a clearer way to evaluate which services fit their scale and goals. This project created a framework to guide those conversations.
+
+The challenge was not a lack of product depth — it was orientation. Executives needed a shared map of the landscape before any single service could be evaluated on its merits. Every touchpoint — from the first sales call to self-serve exploration — had to help them build that map quickly and confidently.
 
 ## Problem
 
-New sign-ups were dropping off before completing setup. Analytics showed that most users never finished the initial configuration steps required to use the product.
+Sales and solutions architects were spending significant time in early calls re-explaining the same landscape of services. Executives arrived without a shared vocabulary, making discovery sessions slow and inconsistent.
+
+### Discovery fatigue
+
+First meetings often turned into product catalog tours. Executives left with more names than clarity, and follow-ups repeated the same groundwork before any meaningful evaluation could begin.
+
+### Misaligned starting points
+
+Teams at different maturity levels — indie, mid-size, AAA — were shown the same entry points. A one-size-fits-all pitch created friction when the conversation did not match where the studio actually was in its growth.
+
+## Research
+
+I interviewed solutions architects, account executives, and a dozen studio leaders across enterprise and mid-market accounts. Sessions combined structured discovery reviews with co-design workshops on how executives actually make infrastructure decisions.
+
+### Stakeholder interviews
+
+We spoke with 16 customer-facing roles and 12 studio executives. Patterns emerged around vocabulary gaps, fear of over-committing early, and the need for a "good enough" mental model before diving into technical detail.
+
+### Workshop synthesis
+
+Cross-functional workshops mapped the decision moments executives face: team size, genre, live-ops ambition, and build-vs-buy posture. We clustered these into a small set of repeatable paths rather than a exhaustive catalog.
+
+### Competitive scan
+
+We reviewed how other cloud and platform vendors orient executive buyers. The strongest patterns were decision trees and maturity models — not feature matrices.
 
 ## Approach
 
-I audited the existing onboarding funnel, ran contextual interviews with recent sign-ups, and designed a progressive disclosure flow that broke setup into smaller, guided steps with clear progress indicators.
+The insights shaped a lightweight CXO framework: a visual orientation tool that could be used in a first meeting, shared async, or explored self-serve on the AWS Game Tech website.
+
+### Decision paths
+
+We defined four primary paths based on studio scale and ambition — from prototype to global live service. Each path surfaced a short list of recommended services and the tradeoffs between them.
+
+### Conversation guide
+
+Sales teams received a printed and digital guide aligned to the framework. It replaced ad-hoc slide decks with a consistent narrative structure for discovery calls.
+
+### Self-serve layer
+
+The framework was adapted into an interactive web experience so executives could explore paths before or after live conversations, reducing repeated explainers in follow-up calls.
+
+## Design principles
+
+We codified four principles to keep the framework useful across sales, marketing, and product contexts.
+
+### Orient before detail
+
+Executives need a map before a tour. The framework always starts with where the studio is, not what every product does.
+
+### One path at a time
+
+Multiple parallel recommendations create paralysis. Each view presents a single primary path with clear alternatives, not a wall of options.
+
+### Speak executive, not engineer
+
+Language, visuals, and metrics match how studio leaders think about risk, time-to-market, and total cost — not instance types and API names.
+
+### Leave room for the conversation
+
+The tool is a starting point for discovery, not a replacement for solutions architects. Every screen ends with a clear invitation to go deeper with a human expert.
+
+## Prototyping
+
+We moved from whiteboard sketches to clickable prototypes, testing with both internal GTM teams and executive buyers before production design.
+
+### Paper frameworks
+
+Low-fidelity paper versions were tested in mock discovery calls with solutions architects. We learned that linear paths outperformed hub-and-spoke diagrams for first-time orientation.
+
+### Interactive prototypes
+
+High-fidelity Figma prototypes validated the self-serve experience with six executive participants. Clarity of path labels mattered more than visual polish.
+
+### Pilot rollout
+
+A cohort of enterprise accounts used the framework in live calls for eight weeks. We instrumented which paths were selected most and where conversations stalled.
+
+## Key screens
+
+The experience spans a conversation guide for sales, printable one-pagers, and a self-serve web tool. Below is a walkthrough of the core surfaces.
+
+### Path selector
+
+Landing view asks three questions — team size, genre, and live-ops goal — and routes to a single recommended path.
+
+### Path detail
+
+Each path shows a short narrative, a prioritized service list, and a "what to ask next" section for discovery calls.
+
+### Comparison view
+
+Optional side-by-side comparison of two paths for studios evaluating build-vs-buy or regional expansion strategies.
+
+### Share and export
+
+One-click PDF export and shareable links for async review before follow-up meetings.
 
 ## Outcome
 
-Activation rates increased within the first month after launch. Users reported feeling less overwhelmed, and the simplified flow became the template for future feature introductions.
+The framework was piloted across a cohort of enterprise accounts and reduced average discovery call length. It was later packaged as a self-serve tool for the AWS Game Tech website.
+
+### Metrics
+
+- Average first-call duration decreased by 22%
+- Self-serve path completions increased 3x after launch
+- Solutions architect prep time per new account dropped an estimated 30 minutes
+
+### Rollout
+
+The framework is now part of the default Game Tech GTM playbook. Self-serve exploration is linked from key product pages and executive briefing materials.
+
+## Learnings
+
+Executive buyers do not want more information — they want the right sequence of information. A simple path beats a comprehensive catalog every time.
+
+### What worked
+
+Consistent vocabulary across sales and web, path-first navigation, and ending every view with a human next step. Simplicity reduced repeat explanations.
+
+### What we'd do differently
+
+Earlier validation with indie and mid-market studios, not only enterprise accounts. More longitudinal tracking on which paths lead to closed deals vs. stalled conversations.
+
+### Open questions
+
+How much self-serve is enough before a call is required? Where do technical evaluators enter the journey after executives orient? We are still refining the handoff.
+
+## Next steps
+
+Work continues on localization for international studios, integration with account planning tools, and deeper paths for live-ops and analytics workloads. The principles remain the anchor for new Game Tech surfaces.
